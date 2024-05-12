@@ -1,0 +1,13 @@
+{
+  "compilerOptions": {
+    "outDir": "./dist/",
+    "module": "CommonJS",
+    "target": "ES2023",
+    "esModuleInterop": true,
+    "allowJs": true,
+    "strict": true,
+    "noImplicitAny": true,
+    "baseUrl": "./",
+    "rootDir": "./src",
+  }
+}
