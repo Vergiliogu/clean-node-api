@@ -10,3 +10,4 @@ npm-debug.log
 .env.production.local
 build
 dist
+coverage
