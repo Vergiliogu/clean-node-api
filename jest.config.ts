@@ -2,6 +2,9 @@ import type { Config } from 'jest';
 
 const config: Config = {
   rootDir: "./",
+  watchPathIgnorePatterns: [
+    "<rootDir>/globalConfig.json"
+  ],
   collectCoverageFrom: ["<rootDir>/src/**/*.ts"],
   collectCoverage: true,
   coveragePathIgnorePatterns: [
@@ -15,7 +18,7 @@ const config: Config = {
   transform: {
     '^.+\\.ts$': 'ts-jest',
   },
-  preset: '@shelf/jest-mongodb'
+  preset: '@shelf/jest-mongodb',
 };
 
 export default config;
