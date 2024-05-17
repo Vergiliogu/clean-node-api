@@ -2,6 +2,10 @@ import { MongoClient } from 'mongodb'
 import { MongoHelper } from '../helper/mongo-helper';
 import { AccountMongoRepository } from './account';
 
+const makeSut = (): AccountMongoRepository => {
+  return new AccountMongoRepository()
+}
+
 describe('Account Mongo Repository', () => {
   let client: MongoClient;
 
@@ -15,7 +19,7 @@ describe('Account Mongo Repository', () => {
   })
 
   test('Should return an account on success', async () => {
-    const sut = new AccountMongoRepository()
+    const sut = makeSut()
     const account = await sut.add({
       name: 'any',
       email: 'any@mail.com',
