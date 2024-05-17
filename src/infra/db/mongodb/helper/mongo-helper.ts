@@ -1,4 +1,4 @@
-import { Collection, MongoClient, Document as MongoDocument } from "mongodb"
+import { Collection, MongoClient, Document as MongoDocument, WithId } from "mongodb"
 
 export const MongoHelper = {
   client: {} as MongoClient,
@@ -13,5 +13,16 @@ export const MongoHelper = {
 
   getCollection<T extends MongoDocument>(name: string): Collection<T> {
     return this.client.db().collection<T>(name)
+  },
+
+  map<T>(
+    collection: WithId<T>
+  ): T & { id: string } {
+    const { _id, ...filteredAccount } = collection
+
+    return {
+      ...filteredAccount,
+      id: _id.toString()
+    } as T & { id: string };
   }
 }
